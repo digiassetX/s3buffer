@@ -1,0 +1,24 @@
+{
+  "name": "s3buffer",
+  "version": "1.0.1",
+  "description": "easy reading and writing buffers to a s3 bucket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matthew Cornelisse",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.765.0"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.11.3",
+    "sleep-promise": "^8.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digiassetX/s3buffer"
+  }
+}
+
