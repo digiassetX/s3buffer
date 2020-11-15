@@ -40,6 +40,21 @@ module.exports = {
         test.equal(await s3buffer.exists("a"),true);
         test.equal(await s3buffer.exists("b"),false);
 
+        //try deleting a file
+        await s3buffer.delete('a');
+        test.equal(await s3buffer.exists("a"),false);
+
+        //try clearing all files starting with a prefix
+        await s3buffer.write('a',file0500);
+        await s3buffer.write('te',file0500);
+        await s3buffer.write('te1',file0500);
+        await s3buffer.write('te2',file0500);
+        await s3buffer.clear("te");
+        test.equal(await s3buffer.exists("a"),true);
+        test.equal(await s3buffer.exists("te"),false);
+        test.equal(await s3buffer.exists("te1"),false);
+        test.equal(await s3buffer.exists("te2"),false);
+
         //clear bucket
         await s3buffer.clear();
         test.equal(await s3buffer.exists("a"),false);

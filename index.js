@@ -62,6 +62,25 @@ class S3Buffer {
         });
     };
 
+
+    /**
+     * Deletes a file
+     * @param path
+     * @return {Promise<void>}
+     */
+    async delete(path) {
+        await this._s3.deleteObjects({
+            Bucket: this._bucket,
+            Delete: {
+                Objects: [
+                    {
+                        Key: path
+                    }
+                ]
+            }
+        }).promise();
+    }
+
     /**
      * Deletes all files in a directory.  If no path clears the entire bucket
      * @param {String}  path
